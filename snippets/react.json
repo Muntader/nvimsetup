@@ -1,0 +1,235 @@
+{
+  "React Functional Component (TSX)": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "  $0",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = ({}) => {",
+      "  return (",
+      "    <div>",
+      "      ${TM_FILENAME_BASE}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "React Functional Component with TypeScript"
+  },
+  "React Functional Component (JSX)": {
+    "prefix": "rfcj",
+    "body": [
+      "import React from 'react';",
+      "",
+      "const ${TM_FILENAME_BASE} = () => {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "React Functional Component (JavaScript)"
+  },
+  "React useState": {
+    "prefix": "rus",
+    "body": [
+      "const [${1:state}, set${1:state}] = useState<${2:string}>(${3:initialValue});"
+    ],
+    "description": "React useState hook"
+  },
+  "React useEffect": {
+    "prefix": "rue",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "  return () => {",
+      "    ${2:cleanup}",
+      "  };",
+      "}, [${1:}]);"
+    ],
+    "description": "React useEffect hook"
+  },
+  "React useRef": {
+    "prefix": "rur",
+    "body": ["const ${1:ref} = useRef<${2:HTMLDivElement}>(null);"],
+    "description": "React useRef hook"
+  },
+  "React useCallback": {
+    "prefix": "rucb",
+    "body": [
+      "const ${1:handler} = useCallback((${2:params}) => {",
+      "  $0",
+      "}, [${3:}]);"
+    ],
+    "description": "React useCallback hook"
+  },
+  "React useMemo": {
+    "prefix": "rum",
+    "body": ["const ${1:value} = useMemo(() => {", "  $0", "}, [${2:}]);"],
+    "description": "React useMemo hook"
+  },
+  "React useContext": {
+    "prefix": "ructx",
+    "body": ["const ${1:context} = useContext(${2:Context});"],
+    "description": "React useContext hook"
+  },
+  "React useReducer": {
+    "prefix": "rurdc",
+    "body": [
+      "type ${1:State} = {",
+      "  $0",
+      "};",
+      "",
+      "type ${2:Action} =",
+      "  | { type: '${3:ACTION_TYPE}' }",
+      "  | { type: '${4:OTHER_ACTION}'; payload: ${5:string} };",
+      "",
+      "const ${6:reducer} = (state: ${1:State}, action: ${2:Action}): ${1:State} => {",
+      "  switch (action.type) {",
+      "    case '${3:ACTION_TYPE}':",
+      "      return { ...state };",
+      "    default:",
+      "      return state;",
+      "  }",
+      "};",
+      "",
+      "const [state, dispatch] = useReducer(${6:reducer}, initialState);"
+    ],
+    "description": "React useReducer hook"
+  },
+  "React createContext": {
+    "prefix": "rcc",
+    "body": [
+      "interface ${TM_FILENAME_BASE}ContextType {",
+      "  $0",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE}Context = createContext<${TM_FILENAME_BASE}ContextType | undefined>(undefined);",
+      "",
+      "export const use${TM_FILENAME_BASE} = (): ${TM_FILENAME_BASE}ContextType => {",
+      "  const context = useContext(${TM_FILENAME_BASE}Context);",
+      "  if (!context) {",
+      "    throw new Error('use${TM_FILENAME_BASE} must be used within ${TM_FILENAME_BASE}Provider');",
+      "  }",
+      "  return context;",
+      "};"
+    ],
+    "description": "React createContext with hook"
+  },
+  "React onClick handler": {
+    "prefix": "roncl",
+    "body": [
+      "const handle${1:Click} = (${2:e}: React.MouseEvent<${3:HTMLDivElement}>) => {",
+      "  $0",
+      "};"
+    ],
+    "description": "React click event handler"
+  },
+  "React onChange handler": {
+    "prefix": "ronch",
+    "body": [
+      "const handle${1:Change} = (${2:e}: React.ChangeEvent<${3:HTMLInputElement}>) => {",
+      "  $0",
+      "};"
+    ],
+    "description": "React change event handler"
+  },
+  "React form onSubmit": {
+    "prefix": "rofrm",
+    "body": [
+      "const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {",
+      "  e.preventDefault();",
+      "  $0",
+      "};"
+    ],
+    "description": "React form submit handler"
+  },
+  "React forwardRef": {
+    "prefix": "rfr",
+    "body": [
+      "const ${TM_FILENAME_BASE} = forwardRef<${1:HTMLDivElement}, ${2:Props}>((props, ref) => {",
+      "  return (",
+      "    <div ref={ref}>",
+      "      $0",
+      "    </div>",
+      "  );",
+      "});",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "React forwardRef component"
+  },
+  "NestJS Module": {
+    "prefix": "nmod",
+    "body": [
+      "import { Module } from '@nestjs/common';",
+      "",
+      "@Module({",
+      "  imports: [${1}],",
+      "  controllers: [${2}],",
+      "  providers: [${3}],",
+      "  exports: [${4}],",
+      "})",
+      "export class ${TM_FILENAME_BASE}Module {}"
+    ],
+    "description": "NestJS Module"
+  },
+  "NestJS Controller": {
+    "prefix": "nctl",
+    "body": [
+      "import { Controller, Get, Post, Body, Param } from '@nestjs/common';",
+      "import { ${1:Service} } from './${1:service}.service';",
+      "",
+      "@Controller('${2:route}')",
+      "export class ${TM_FILENAME_BASE}Controller {",
+      "  constructor(private readonly ${1:service}: ${1:Service}) {}",
+      "",
+      "  @Get()",
+      "  async findAll() {",
+      "    return this.${1:service}.findAll();",
+      "  }",
+      "",
+      "  @Get(':id')",
+      "  async findOne(@Param('id') id: string) {",
+      "    return this.${1:service}.findOne(id);",
+      "  }",
+      "",
+      "  @Post()",
+      "  async create(@Body() createDto: ${3:CreateDto}) {",
+      "    return this.${1:service}.create(createDto);",
+      "  }",
+      "}"
+    ],
+    "description": "NestJS Controller"
+  },
+  "NestJS Service": {
+    "prefix": "nsvc",
+    "body": [
+      "import { Injectable } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export class ${TM_FILENAME_BASE}Service {",
+      "  constructor() {}",
+      "",
+      "  async findAll() {",
+      "    return `Find all items`;",
+      "  }",
+      "",
+      "  async findOne(id: string) {",
+      "  }",
+      "",
+      "  async create(createDto: any) {",
+      "    return `Created item`;",
+      "  }",
+      "}"
+    ],
+    "description": "NestJS Service"
+  }
+}

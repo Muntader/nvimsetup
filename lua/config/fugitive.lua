@@ -1,0 +1,2 @@
+-- Configuring vim-fugitive for Git integration
+-- No specific setup required; commands are accessed via :Git

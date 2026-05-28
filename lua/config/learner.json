@@ -1,0 +1,484 @@
+{
+  "topics": [
+    {
+      "tags": ["select", "function", "block", "braces", "visual", "text-object"],
+      "title": "Select inside a function",
+      "desc": "Place cursor inside a function. `vi{` selects the body, `va{` includes the braces. Works with any {} block.",
+      "keys": "vi{  or  va{  or  vib / vab (for bracket text-objects)",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "quotes", "string", "between", "visual"],
+      "title": "Select text between quotes",
+      "desc": "`vi\"` selects inside double quotes. `ci\"` changes inside double quotes. Works with `'` ` ` too.",
+      "keys": "vi\"  or  va\"  or  ci\"  or  ca\"",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "brackets", "parens", "parentheses", "visual"],
+      "title": "Select between parentheses",
+      "desc": "`vi)` or `vi(` selects inside parentheses. `va)` includes the parens. `ci)` to change inside.",
+      "keys": "vi(  or  va(  or  ci(  or  ca(",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "word", "visual", "text-object"],
+      "title": "Select a word",
+      "desc": "`viw` selects the current word. `vaw` includes trailing whitespace. `ciw` replaces the word.",
+      "keys": "viw  or  vaw  or  ciw  or  daw (delete a word)",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "line", "visual"],
+      "title": "Select current line",
+      "desc": "`V` selects the current line (visual line mode). `Vjj` extends selection down.",
+      "keys": "V  (then j/k to extend)",
+      "category": "Basic",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "paragraph", "visual", "text-object"],
+      "title": "Select a paragraph",
+      "desc": "`vip` selects the current paragraph (text between blank lines). `vap` includes the trailing blank line.",
+      "keys": "vip  or  vap  or  dip (delete paragraph)",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "tag", "html", "xml", "visual"],
+      "title": "Select HTML/XML tag content",
+      "desc": "`vit` selects inside a tag pair. `vat` includes the tags. Works for any HTML/XML.",
+      "keys": "vit  or  vat  or  cit (change inside tag)",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["select", "all", "entire", "buffer", "whole"],
+      "title": "Select all text in buffer",
+      "desc": "`ggVG` selects everything. Or use `<C-a>` with current config.",
+      "keys": "ggVG  or  <C-a> (in current config)",
+      "category": "Basic",
+      "mode": "normal"
+    },
+    {
+      "tags": ["copy", "yank", "clipboard"],
+      "title": "Copy (yank) text",
+      "desc": "`yy` yanks current line. `yiw` yanks inner word. `y$` yanks to end of line. `\"+y` yanks to system clipboard.",
+      "keys": "yy  or  yiw  or  y$  or  \"+y",
+      "category": "Editing",
+      "mode": "normal"
+    },
+    {
+      "tags": ["cut", "delete", "clipboard"],
+      "title": "Cut (delete) text",
+      "desc": "`dd` deletes current line. `diw` deletes inner word. `d$` deletes to end of line. `d}` deletes to end of paragraph.",
+      "keys": "dd  or  diw  or  d$  or  d}  or  di{ (delete inside {})",
+      "category": "Editing",
+      "mode": "normal"
+    },
+    {
+      "tags": ["paste", "clipboard"],
+      "title": "Paste text",
+      "desc": "`p` pastes after cursor. `P` pastes before cursor. `\"+p` pastes from system clipboard.",
+      "keys": "p  or  P  or  \"+p",
+      "category": "Editing",
+      "mode": "normal"
+    },
+    {
+      "tags": ["undo", "redo"],
+      "title": "Undo and Redo",
+      "desc": "`u` to undo last change. `<C-r>` to redo. `.` repeats last change.",
+      "keys": "u  (undo)  |  <C-r>  (redo)  |  .  (repeat)",
+      "category": "Basic",
+      "mode": "normal"
+    },
+    {
+      "tags": ["save", "write", "file"],
+      "title": "Save file",
+      "desc": "`:w` saves the file. `<C-s>` also saves. `:wq` saves and quits.",
+      "keys": ":w  or  <C-s>  or  :wq",
+      "category": "Basic",
+      "mode": "normal"
+    },
+    {
+      "tags": ["quit", "close", "exit"],
+      "title": "Quit / close buffer",
+      "desc": "`:q` quits window. `:q!` force quit. `<leader>q` quick quit. `<leader>bc` smart close buffer.",
+      "keys": ":q  or  :q!  or  <leader>q  or  <leader>bc",
+      "category": "Basic",
+      "mode": "normal"
+    },
+    {
+      "tags": ["comment", "toggle"],
+      "title": "Toggle comment",
+      "desc": "`<leader>cc` toggles line comment. `<leader>cb` toggles block comment. Works in visual mode too.",
+      "keys": "<leader>cc  (line)  |  <leader>cb  (block)",
+      "category": "Editing",
+      "mode": "normal"
+    },
+    {
+      "tags": ["indent", "dedent", "shift"],
+      "title": "Indent / dedent",
+      "desc": "`>>` indents line. `<<` dedents. In visual mode: `<` or `>` indents selection, `gv` reselects.",
+      "keys": ">>  or  <<  or  > (visual mode)  or   < (visual mode)",
+      "category": "Editing",
+      "mode": "normal"
+    },
+    {
+      "tags": ["move", "line", "up", "down"],
+      "title": "Move lines up/down (visual mode)",
+      "desc": "In visual mode: `K` moves selected lines up, `J` moves down.",
+      "keys": "K  (up)  |  J  (down)   [in visual mode]",
+      "category": "Editing",
+      "mode": "visual"
+    },
+    {
+      "tags": ["substitute", "replace", "search"],
+      "title": "Find and replace",
+      "desc": "`:%s/old/new/g` replaces all. `:%s/old/new/gc` with confirmation. `<leader>sr` replaces word under cursor.",
+      "keys": ":%s/old/new/g  or  <leader>sr",
+      "category": "Search",
+      "mode": "normal"
+    },
+    {
+      "tags": ["search", "find", "word"],
+      "title": "Search for word",
+      "desc": "`*` searches word under cursor (forward). `#` searches backward. `n`/`N` to go next/prev.",
+      "keys": "*  or  #  or  n  or  N  or  /pattern",
+      "category": "Search",
+      "mode": "normal"
+    },
+    {
+      "tags": ["clear", "highlight", "search"],
+      "title": "Clear search highlights",
+      "desc": "`<leader>hn` clears search highlighting.",
+      "keys": "<leader>hn",
+      "category": "Search",
+      "mode": "normal"
+    },
+    {
+      "tags": ["buffer", "switch", "navigate"],
+      "title": "Switch between buffers",
+      "desc": "`<leader>bn` next buffer. `<leader>bP` previous. `<Tab>` next, `<S-Tab>` previous. `<leader>bb` toggle last.",
+      "keys": "<Tab> or <leader>bn or <leader>bb",
+      "category": "Buffers",
+      "mode": "normal"
+    },
+    {
+      "tags": ["buffer", "close", "delete"],
+      "title": "Close buffer smartly",
+      "desc": "`<leader>bc` closes current buffer and auto-switches to neighbor. `<C-w>` same action. `<leader>bC` close others.",
+      "keys": "<leader>bc  or  <C-w>  (smart close)",
+      "category": "Buffers",
+      "mode": "normal"
+    },
+    {
+      "tags": ["buffer", "find", "search"],
+      "title": "Find buffer",
+      "desc": "`<leader>bf` opens Telescope buffer picker. Type to filter and select.",
+      "keys": "<leader>bf  or  <leader>fb",
+      "category": "Buffers",
+      "mode": "normal"
+    },
+    {
+      "tags": ["file", "open", "find"],
+      "title": "Find file",
+      "desc": "`<leader>ff` opens Telescope file search. Type filename or path fragments.",
+      "keys": "<leader>ff",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["file", "recent", "history"],
+      "title": "Open recent files",
+      "desc": "`<leader>fo` or `<leader>r` on dashboard shows recently opened files.",
+      "keys": "<leader>fo",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["file", "explorer", "tree"],
+      "title": "Toggle file explorer",
+      "desc": "`<leader>e` toggles Neo-tree file explorer.",
+      "keys": "<leader>e",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["window", "split", "navigate"],
+      "title": "Navigate between windows",
+      "desc": "`<C-h>` left, `<C-j>` down, `<C-k>` up, `<C-l>` right. Works in normal and visual modes.",
+      "keys": "<C-h/j/k/l>",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["window", "split", "resize"],
+      "title": "Resize windows",
+      "desc": "`<leader>w` enters resize mode, then use `j`/`k`/`h`/`l`. `<Esc>` to exit.",
+      "keys": "<leader>w  then j/k/h/l",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["split", "vsplit", "horizontal", "vertical"],
+      "title": "Create window splits",
+      "desc": "`<leader>ts` horizontal split. `<leader>tv` vertical split.",
+      "keys": "<leader>ts  (horizontal)  |  <leader>tv  (vertical)",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["tab", "new", "switch"],
+      "title": "Work with tabs",
+      "desc": "`<leader>tn` new tab. `<leader>tc` close tab. `<leader>tf` next, `<leader>tp` previous. `<leader>t1-9` to go to tab N.",
+      "keys": "<leader>tn  or  <leader>t1-9",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "stage", "commit", "push", "pull"],
+      "title": "Git commit",
+      "desc": "`<leader>gg` opens Neogit. `S` stages all, `c` then `c` to commit. Write message, `:wq`.",
+      "keys": "<leader>gg → S → c → c → (write) → :wq",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "commit", "fast"],
+      "title": "Quick commit (stage all + commit)",
+      "desc": "`<leader>gc` opens commit popup. Toggle `-a` with `a` to stage all, then `c`.",
+      "keys": "<leader>gc → a (toggle -a) → c → (write) → :wq",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "push"],
+      "title": "Git push",
+      "desc": "`<leader>gp` pushes commits. Or inside Neogit: press `P`.",
+      "keys": "<leader>gp  or  P (inside Neogit)",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "pull"],
+      "title": "Git pull",
+      "desc": "`<leader>gl` pulls from remote. Or inside Neogit: press `p`.",
+      "keys": "<leader>gl  or  p (inside Neogit)",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "status", "diff"],
+      "title": "Git status / diff",
+      "desc": "`<leader>gg` opens Neogit. Shows unstaged/staged changes. `<leader>gs` opens Fugitive status.",
+      "keys": "<leader>gg  or  <leader>gs",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "blame"],
+      "title": "Git blame line",
+      "desc": "`<leader>gm` shows who last modified the current line.",
+      "keys": "<leader>gm",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "revert", "undo", "commit"],
+      "title": "Revert a commit",
+      "desc": "In Neogit: move cursor to the commit, press `v` to create a revert commit (safe).",
+      "keys": "<leader>gg → select commit → v",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "definition", "go-to"],
+      "title": "Go to definition",
+      "desc": "`gd` jumps to symbol definition. `<C-o>` jumps back.",
+      "keys": "gd  (then <C-o> to jump back)",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "rename", "symbol"],
+      "title": "Rename symbol",
+      "desc": "`<leader>lr` renames the symbol under cursor across all files.",
+      "keys": "<leader>lr",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "code-action", "fix"],
+      "title": "Code actions / quick fix",
+      "desc": "`<leader>la` shows available code actions (auto-fix, refactor, etc.).",
+      "keys": "<leader>la",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "format", "prettier"],
+      "title": "Format code",
+      "desc": "`<leader>lf` formats the current buffer using LSP formatter.",
+      "keys": "<leader>lf",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "hover", "documentation", "type"],
+      "title": "Hover / show docs",
+      "desc": "`K` shows documentation, type info, and hover details for symbol under cursor.",
+      "keys": "K",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "references", "find"],
+      "title": "Find all references",
+      "desc": "`<leader>lF` or `<leader>fr` shows all places where symbol is used.",
+      "keys": "<leader>lF  or  <leader>fr",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["diagnostics", "error", "warning"],
+      "title": "Navigate diagnostics",
+      "desc": "`[d` previous diagnostic, `]d` next diagnostic. `<leader>dn` and `<leader>dp` for Trouble panel.",
+      "keys": "[d  or  ]d  or  <leader>dd",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["diagnostics", "list", "panel"],
+      "title": "Diagnostics panel",
+      "desc": "`<leader>dd` toggles diagnostics panel below the file tree.",
+      "keys": "<leader>dd",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["snippets", "completion", "blink"],
+      "title": "Autocomplete / snippets",
+      "desc": "`<Tab>` accepts completion. `<C-j>/<C-k>` to navigate suggestions. Type and blink.cmp completes.",
+      "keys": "<Tab>  (accept)  |  <C-j>/<C-k>  (navigate)",
+      "category": "Editing",
+      "mode": "insert"
+    },
+    {
+      "tags": ["terminal", "toggle"],
+      "title": "Toggle terminal",
+      "desc": "`<leader>`` opens/closes the built-in terminal.",
+      "keys": "<leader>`",
+      "category": "Tools",
+      "mode": "normal"
+    },
+    {
+      "tags": ["theme", "switch", "colorscheme"],
+      "title": "Switch theme",
+      "desc": "`<leader>tt` toggles between light/dark theme. `<leader>th` picks a theme.",
+      "keys": "<leader>tt  or  <leader>th",
+      "category": "Appearance",
+      "mode": "normal"
+    },
+    {
+      "tags": ["project", "switch"],
+      "title": "Switch project",
+      "desc": "`<leader>fp` opens Telescope project picker to switch between recent projects.",
+      "keys": "<leader>fp",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["which-key", "help", "discover"],
+      "title": "Discover available keymaps",
+      "desc": "`<leader>?` shows all buffer-local keymaps. Press `<leader>` and wait for which-key popup.",
+      "keys": "<leader>?  or  press <leader> and wait",
+      "category": "Help",
+      "mode": "normal"
+    },
+    {
+      "tags": ["config", "edit", "reload"],
+      "title": "Edit / reload Neovim config",
+      "desc": "`<leader>re` opens init.lua. `<leader>rr` reloads config. `<leader>lR` restarts LSP clients.",
+      "keys": "<leader>re  (edit)  |  <leader>rr  (reload)",
+      "category": "Config",
+      "mode": "normal"
+    },
+    {
+      "tags": ["change", "replace", "inner", "around"],
+      "title": "Change inner / around text object",
+      "desc": "`ci` + object changes inside. `ca` + object changes around (includes delimiters). E.g., `ci\"` changes inside quotes.",
+      "keys": "ci{object}  or  ca{object}   e.g. ci\"  ci(  ci[  ci<  cit",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["delete", "inner", "around"],
+      "title": "Delete inner / around text object",
+      "desc": "`di` + object deletes inside. `da` + object deletes around. E.g., `di{` deletes inside braces.",
+      "keys": "di{object}  or  da{object}   e.g. di{  di\"  di(  dat",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["visual", "block", "column", "select"],
+      "title": "Visual block mode",
+      "desc": "`<C-v>` enters visual block mode. Select columns, then `I` to insert before, `A` to append after.",
+      "keys": "<C-v> → select → I or A → type → <Esc>",
+      "category": "Text Objects",
+      "mode": "normal"
+    },
+    {
+      "tags": ["macro", "record", "repeat"],
+      "title": "Record and replay macro",
+      "desc": "`qa` starts recording into register `a`. Do actions, `q` stops. `@a` replays. `@@` repeats last.",
+      "keys": "qa → (actions) → q → @a",
+      "category": "Advanced",
+      "mode": "normal"
+    },
+    {
+      "tags": ["jump", "motion", "navigation"],
+      "title": "Jump to any visible word",
+      "desc": "`f{char}` jumps to next `char` on line. `t{char}` jumps before. `;` repeats. `,` reverses.",
+      "keys": "f{char}  or  t{char}  or  ;  or  ,",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["jump", "line", "go-to"],
+      "title": "Go to line",
+      "desc": "`{line}G` jumps to specific line. `gg` to top. `G` to bottom. `:42` goes to line 42.",
+      "keys": ":42  or  42G  or  gg  or  G",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["marks", "bookmark", "jump"],
+      "title": "Set and jump to marks",
+      "desc": "`ma` sets mark `a`. `'a` jumps to line of mark `a`. `` `a `` jumps to exact position. `:marks` lists all.",
+      "keys": "m{a-z}  →  '{a-z}  or  `{a-z}",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["telescope", "grep", "search", "find"],
+      "title": "Grep across files",
+      "desc": "`<leader>fg` opens Telescope live_grep. Type pattern, results update live.",
+      "keys": "<leader>fg",
+      "category": "Search",
+      "mode": "normal"
+    },
+    {
+      "tags": ["symbols", "telescope", "outline"],
+      "title": "Search symbols in file",
+      "desc": "`<leader>fs` opens Treesitter symbols picker (functions, classes, etc.).",
+      "keys": "<leader>fs",
+      "category": "Search",
+      "mode": "normal"
+    }
+  ]
+}
