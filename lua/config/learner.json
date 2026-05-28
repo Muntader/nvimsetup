@@ -479,6 +479,206 @@
       "keys": "<leader>fs",
       "category": "Search",
       "mode": "normal"
+    },
+    {
+      "tags": ["harpoon", "marks", "files", "navigate"],
+      "title": "Harpoon: mark a file",
+      "desc": "`<leader>ha` adds the current file to the Harpoon list. Useful for marking files you frequently switch between.",
+      "keys": "<leader>ha",
+      "category": "Harpoon",
+      "mode": "normal"
+    },
+    {
+      "tags": ["harpoon", "quick-menu", "files"],
+      "title": "Harpoon: quick menu",
+      "desc": "`<leader>H` opens the Harpoon list. Select a file to jump to it. `d` to remove, `r` to reorder.",
+      "keys": "<leader>H  → (select) → <CR>",
+      "category": "Harpoon",
+      "mode": "normal"
+    },
+    {
+      "tags": ["harpoon", "jump", "navigate"],
+      "title": "Harpoon: jump to slot",
+      "desc": "`<leader>h1` jumps to file in slot 1. `h2`/`h3`/`h4` for slots 2/3/4. Assign files with `<leader>ha` first.",
+      "keys": "<leader>h1  or  <leader>h2  or  <leader>h3  or  <leader>h4",
+      "category": "Harpoon",
+      "mode": "normal"
+    },
+    {
+      "tags": ["flash", "jump", "motion", "navigation"],
+      "title": "Flash: jump anywhere",
+      "desc": "Press `s` then type 2 characters to jump directly to any visible match. Labels appear on screen.",
+      "keys": "s{2 chars} → (press the label key)",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["flash", "treesitter", "jump"],
+      "title": "Flash: jump by Treesitter node",
+      "desc": "`S` (shift-s) labels all visible Treesitter nodes (functions, classes, etc.). Press the label to jump.",
+      "keys": "S  → (press the label key)",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["flash", "remote", "operator"],
+      "title": "Flash: remote operator",
+      "desc": "In operator-pending mode (after d, y, c), `r` lets you target a remote position to operate on.",
+      "keys": "d r  → (target a remote word to delete it)",
+      "category": "Navigation",
+      "mode": "normal"
+    },
+    {
+      "tags": ["tab", "create", "close", "navigate"],
+      "title": "Create / close tabs",
+      "desc": "`<leader>tn` creates a new tab. `<leader>tc` closes the current tab. `<leader>to` closes all other tabs.",
+      "keys": "<leader>tn  (new)  |  <leader>tc  (close)  |  <leader>to  (close others)",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["tab", "move", "reorder"],
+      "title": "Move tabs left / right",
+      "desc": "`<leader>tm` moves the current tab to the next position. `<leader>tM` moves it to the previous position.",
+      "keys": "<leader>tm  (right)  |  <leader>tM  (left)",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["tab", "navigate", "switch", "go-to"],
+      "title": "Navigate between tabs",
+      "desc": "`<leader>tf` goes to next tab. `<leader>tp` goes to previous tab. `<leader>t1`-`<leader>t9` goes to tab N.",
+      "keys": "<leader>tf  or  <leader>tp  or  <leader>t1..t9",
+      "category": "Windows",
+      "mode": "normal"
+    },
+    {
+      "tags": ["neo-tree", "explorer", "files"],
+      "title": "Neo-tree: basic navigation",
+      "desc": "`<leader>e` toggles Neo-tree. Use `j`/`k` to move, `<CR>` to open, `-` to go up. `H` toggle hidden files.",
+      "keys": "<leader>e  → j/k  navigate, <CR> open, - go up",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["neo-tree", "create", "rename", "delete", "file"],
+      "title": "Neo-tree: create/rename/delete",
+      "desc": "Inside Neo-tree: `a` creates a new file/dir. `r` renames. `d` deletes. `c` copies. `m` moves.",
+      "keys": "a  (add)  |  r  (rename)  |  d  (delete)  |  c  (copy)  |  m  (move)",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["neo-tree", "git", "status"],
+      "title": "Neo-tree: git status",
+      "desc": "Files in Neo-tree show git status icons: `~` modified, `+` staged, `x` unstaged. Press `g` to toggle git filter.",
+      "keys": "g  (toggle git status filter)",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["telescope", "file-browser", "files"],
+      "title": "Telescope: file browser",
+      "desc": "`<leader>fe` opens Telescope file browser rooted at the current project directory.",
+      "keys": "<leader>fe",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["project", "switch", "telescope"],
+      "title": "Switch project",
+      "desc": "`<leader>fp` opens the project picker to quickly switch between recent projects.",
+      "keys": "<leader>fp",
+      "category": "Files",
+      "mode": "normal"
+    },
+    {
+      "tags": ["spectre", "search", "replace", "grep"],
+      "title": "Spectre: search and replace across files",
+      "desc": "`<leader>sr` opens Spectre. Type a search pattern, edit replacements in the right pane, then apply.",
+      "keys": "<leader>sr  → type pattern → edit → :w",
+      "category": "Search",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "diffview", "diff", "compare"],
+      "title": "Git: view diffs",
+      "desc": "`<leader>gd` opens Diffview. `<leader>gh` shows commit history for the current file.",
+      "keys": "<leader>gd  (diff)  |  <leader>gh  (file history)",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "gitsigns", "hunk", "stage"],
+      "title": "Git: stage / undo hunks",
+      "desc": "`<leader>hs` stages (adds) the current hunk. `<leader>hu` un-stages it. Changes are highlighted inline.",
+      "keys": "<leader>hs  (stage)  |  <leader>hu  (unstage)",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["git", "blame"],
+      "title": "Git: blame line",
+      "desc": "`<leader>gb` shows who last changed the current line with commit info.",
+      "keys": "<leader>gb",
+      "category": "Git",
+      "mode": "normal"
+    },
+    {
+      "tags": ["quickfix", "trouble", "list"],
+      "title": "Toggle Trouble diagnostics list",
+      "desc": "`<leader>xx` toggles Trouble (all diagnostics). `<leader>xw` workspace diagnostics. `<leader>xd` document diagnostics.",
+      "keys": "<leader>xx  or  <leader>xw  or  <leader>xd",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "inlay-hint", "type-hint"],
+      "title": "Toggle inlay hints",
+      "desc": "`<leader>lh` toggles LSP inlay hints (shows inferred types as virtual text).",
+      "keys": "<leader>lh",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["lsp", "workspace", "symbols"],
+      "title": "Search workspace symbols",
+      "desc": "`<leader>lS` opens Telescope LSP workspace symbol picker to search across all files in the project.",
+      "keys": "<leader>lS",
+      "category": "LSP",
+      "mode": "normal"
+    },
+    {
+      "tags": ["copilot", "accept", "ai", "suggestion"],
+      "title": "Copilot: accept suggestion",
+      "desc": "`<A-Enter>` accepts the current Copilot suggestion. `<A-]>` cycles through alternatives. Copilot suggests as you type.",
+      "keys": "<A-Enter>  (accept)  |  <A-]>  (next)  |  <A-[>  (previous)",
+      "category": "AI",
+      "mode": "insert"
+    },
+    {
+      "tags": ["copilot", "chat", "explain", "ai"],
+      "title": "CopilotChat: explain code",
+      "desc": "`<leader>ae` opens CopilotChat to explain the selected code. `<leader>at` generates tests. `<leader>af` fixes diagnostics.",
+      "keys": "<leader>ae  (explain)  |  <leader>at  (tests)  |  <leader>af  (fix)",
+      "category": "AI",
+      "mode": "normal"
+    },
+    {
+      "tags": ["session", "save", "restore", "auto-session"],
+      "title": "Save / restore sessions",
+      "desc": "Sessions are saved automatically when you quit. `<leader>ss` saves manually. `<leader>sl` restores the last session.",
+      "keys": "<leader>ss  (save)  |  <leader>sl  (load)",
+      "category": "Tools",
+      "mode": "normal"
+    },
+    {
+      "tags": ["zen", "focus", "distraction-free"],
+      "title": "Zen mode (distraction-free)",
+      "desc": "`<leader>z` toggles Zen mode — hides toolbars and centers the buffer so you can focus on writing.",
+      "keys": "<leader>z",
+      "category": "Appearance",
+      "mode": "normal"
     }
   ]
 }
