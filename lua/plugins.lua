@@ -314,16 +314,7 @@ return {
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
-				suggestion = {
-					enabled = true,
-					auto_trigger = false,
-					keymap = {
-						accept = "<M-Enter>",
-						next = "<M-]>",
-						prev = "<M-[>",
-						dismiss = "<C-e>",
-					},
-				},
+				suggestion = { enabled = false },
 				panel = { enabled = false },
 			})
 		end,
@@ -361,6 +352,10 @@ return {
 			"saghen/blink.lib",
 			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
+			{
+				"fang2hou/blink-copilot",
+				opts = { max_completions = 3 },
+			},
 		},
 		build = function()
 			require("blink.cmp").build():wait(60000)
