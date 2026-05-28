@@ -2,6 +2,8 @@
 
 Personal Neovim configuration focused on TypeScript/TSX and Go development.
 
+Press `<space>hh` to learn how to use Neovim or any plugin, and `<space>hk` to see all shortcuts.
+
 ## Plugins
 
 **Completion & LSP**
