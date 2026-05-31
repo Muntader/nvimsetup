@@ -1,13 +1,11 @@
 return {
 	-- ============================================================================
-	-- THEMES - Add better Treesitter-compatible theme
+	-- THEMES
 	-- ============================================================================
 
-	-- Theme plugins (kept to essentials)
 	{ "sainnhe/gruvbox-material", lazy = true },
 	{ "svrana/neosolarized.nvim", lazy = true },
 
-	-- Catppuccin
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -20,7 +18,7 @@ return {
 				integrations = {
 					treesitter = true,
 					native_lsp = { enabled = true },
-					cmp = true,
+					blink_cmp = true, -- was cmp = true
 					gitsigns = true,
 					telescope = true,
 					dap = true,
@@ -31,7 +29,6 @@ return {
 		end,
 	},
 
-	-- Tokyo Night
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -39,33 +36,19 @@ return {
 		opts = {
 			style = "night",
 			transparent = false,
-			styles = {
-				sidebars = "dark",
-				floats = "dark",
-			},
+			styles = { sidebars = "dark", floats = "dark" },
 		},
 	},
 
-	-- GitHub Theme (VSCode-like)
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = true,
 		config = function()
 			require("github-theme").setup({
-				options = {
-					transparent = false,
-					hide_end_of_buffer = true,
-				},
+				options = { transparent = false, hide_end_of_buffer = true },
 			})
 		end,
 	},
-
-	-- ============================================================================
-	-- GO DEVELOPMENT
-	-- ============================================================================
-
-	-- go.nvim removed: gopls is configured natively via vim.lsp.config in lsp/gopls.lua
-	-- goimports formatting is handled by conform.nvim
 
 	-- ============================================================================
 	-- DEBUGGING (DAP)
@@ -144,13 +127,10 @@ return {
 
 	{ "tiagovla/scope.nvim", config = true },
 
-	-- Terminal
 	{
 		"akinsho/toggleterm.nvim",
 		cmd = "ToggleTerm",
-		keys = {
-			{ "<leader>`", "<cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
-		},
+		keys = { { "<leader>`", "<cmd>ToggleTerm<CR>", desc = "Toggle terminal" } },
 		opts = {
 			size = 15,
 			open_mapping = false,
@@ -161,7 +141,6 @@ return {
 		},
 	},
 
-	-- Dashboard
 	{
 		"goolord/alpha-nvim",
 		event = "UIEnter",
@@ -188,20 +167,21 @@ return {
 			}
 			dashboard.section.buttons.opts.hl = "Keyword"
 
-			dashboard.section.footer.val = {
-				"",
-				"  nvim " .. tostring(vim.version()),
-			}
+			dashboard.section.footer.val = { "", "  nvim " .. tostring(vim.version()) }
 
 			alpha.setup(dashboard.config)
+
+			local ag = vim.api.nvim_create_augroup("AlphaStatusline", { clear = true })
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "AlphaReady",
+				group = ag,
 				callback = function()
 					vim.cmd("set laststatus=0")
 				end,
 			})
 			vim.api.nvim_create_autocmd("BufUnload", {
 				buffer = 0,
+				group = ag,
 				callback = function()
 					vim.cmd("set laststatus=3")
 				end,
@@ -209,7 +189,6 @@ return {
 		end,
 	},
 
-	-- File explorer (config in lua/config/neo-tree.lua)
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -219,17 +198,12 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		keys = {
-			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle File Explorer" },
-		},
+		keys = { { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle File Explorer" } },
 	},
 
-	-- Aerial (Code outline)
 	{
 		"stevearc/aerial.nvim",
-		keys = {
-			{ "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle Aerial" },
-		},
+		keys = { { "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle Aerial" } },
 		opts = {
 			layout = {
 				default_direction = "right",
@@ -247,7 +221,7 @@ return {
 	},
 
 	-- ============================================================================
-	-- TREESITTER - UPDATED
+	-- TREESITTER
 	-- ============================================================================
 
 	{
@@ -270,14 +244,12 @@ return {
 	-- LSP
 	-- ============================================================================
 
-	-- Mason (setup handled in lua/config/lsp.lua)
 	{
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall" },
 		build = ":MasonUpdate",
 	},
 
-	-- Tailwind Tools
 	{
 		"luckasRanarison/tailwind-tools.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -296,7 +268,6 @@ return {
 		opts = {},
 	},
 
-	-- Inc-rename (live preview rename)
 	{
 		"smjonas/inc-rename.nvim",
 		config = function()
@@ -305,70 +276,29 @@ return {
 	},
 
 	-- ============================================================================
-	-- COPILOT
-	-- ============================================================================
-
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			})
-		end,
-	},
-
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			{ "zbirenbaum/copilot.lua" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-		keys = {
-			{ "<leader>ac", ":CopilotChat<CR>", desc = "Open Copilot Chat" },
-			{ "<leader>ae", ":CopilotChatExplain<CR>", desc = "Explain code" },
-			{ "<leader>at", ":CopilotChatTests<CR>", desc = "Generate tests" },
-			{ "<leader>af", ":CopilotChatFix<CR>", desc = "Fix diagnostics" },
-		},
-		opts = {
-			window = {
-				layout = "dock",
-				width = 0.4,
-			},
-		},
-	},
-
-	-- ============================================================================
-	-- COMPLETION
+	-- COMPLETION — blink.cmp only
+	-- Setup lives in lua/config/blink.lua
 	-- ============================================================================
 
 	{
 		"saghen/blink.cmp",
 		lazy = false,
+		version = "*",
 		dependencies = {
 			"saghen/blink.lib",
 			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
-			{
-				"fang2hou/blink-copilot",
-				opts = { max_completions = 3 },
-			},
+			{ "zbirenbaum/copilot.lua", opts = { suggestion = { enabled = false }, panel = { enabled = false } } },
+			"giuxtaposition/blink-cmp-copilot",
 		},
-		build = function()
-			require("blink.cmp").build():wait(60000)
-		end,
 	},
 
-	-- LuaSnip
 	{
 		"L3MON4D3/LuaSnip",
 		build = "make install_jsregexp",
 		dependencies = { "rafamadriz/friendly-snippets" },
 		config = function()
-			-- Load custom React/TSX snippets
+			require("luasnip.loaders.from_vscode").lazy_load()
 			require("luasnip.loaders.from_vscode").lazy_load({
 				paths = vim.fn.stdpath("config") .. "/snippets",
 			})
@@ -379,31 +309,13 @@ return {
 	-- FORMATTING & LINTING
 	-- ============================================================================
 
-	{
-		"stevearc/conform.nvim",
-		event = "BufWritePre",
-	},
-
-	{
-		"mfussenegger/nvim-lint",
-		event = { "BufReadPost", "BufNewFile" },
-	},
+	{ "stevearc/conform.nvim", event = "BufWritePre" },
+	{ "mfussenegger/nvim-lint", event = { "BufReadPost", "BufNewFile" } },
 
 	-- ============================================================================
 	-- GIT
 	-- ============================================================================
 
-	{
-		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-	},
-
-	{
-		"tpope/vim-fugitive",
-		cmd = { "Git", "G" },
-	},
-
-	-- NEW: Better git diff view
 	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
@@ -414,12 +326,9 @@ return {
 	},
 
 	{
-		"NeogitOrg/neogit",
-		cmd = "Neogit",
-		dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
-		opts = {
-			integrations = { diffview = true },
-		},
+		"kdheepak/lazygit.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		event = "VeryLazy",
 	},
 
 	-- ============================================================================
@@ -449,12 +358,9 @@ return {
 	{
 		"nvim-telescope/telescope-project.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
-		keys = {
-			{ "<leader>fp", "<cmd>Telescope project<CR>", desc = "Switch project" },
-		},
+		keys = { { "<leader>fp", "<cmd>Telescope project<CR>", desc = "Switch project" } },
 	},
 
-	-- Telescope UI Select (use Telescope for vim.ui.select)
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
@@ -463,22 +369,16 @@ return {
 		end,
 	},
 
-
-
-	-- Spectre (multi-file search & replace)
 	{
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		keys = {
-			{ "<leader>Sr", "<cmd>lua require('spectre').open()<CR>", desc = "Search & replace" },
-		},
+		keys = { { "<leader>Sr", "<cmd>lua require('spectre').open()<CR>", desc = "Search & replace" } },
 	},
 
 	-- ============================================================================
 	-- UI ENHANCEMENTS
 	-- ============================================================================
 
-	-- Colorizer
 	{
 		"catgoose/nvim-colorizer.lua",
 		event = "BufReadPre",
@@ -495,30 +395,15 @@ return {
 		},
 	},
 
-	-- Bufferline (config in lua/config/bufferline.lua)
-	{
-		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
-	},
+	{ "akinsho/bufferline.nvim", event = "VeryLazy" },
+	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 
-	-- Statusline (config in lua/config/lualine.lua)
-	{
-		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
-	},
-
-	-- Native UI is preferred in Neovim 0.12 (noice + notify removed)
-
-	-- NEW: Indent guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		main = "ibl",
 		opts = {
-			indent = {
-				char = "│",
-				tab_char = "│",
-			},
+			indent = { char = "│", tab_char = "│" },
 			scope = { enabled = false },
 			exclude = {
 				filetypes = {
@@ -538,20 +423,14 @@ return {
 	-- CODE EDITING ENHANCEMENTS
 	-- ============================================================================
 
-	-- Comments (config in lua/config/comment.lua)
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	},
 
-	-- Auto-pairs (config in lua/config/autopairs.lua)
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-	},
+	{ "windwp/nvim-autopairs", event = "InsertEnter" },
 
-	-- NEW: Surround text objects
 	{
 		"kylechui/nvim-surround",
 		version = "*",
@@ -561,19 +440,8 @@ return {
 		end,
 	},
 
-	-- Emmet abbreviation expansion (filetype-triggered)
-	{
-		"mattn/emmet-vim",
-		ft = { "html", "css", "javascriptreact", "typescriptreact", "xml", "templ" },
-		init = function()
-			vim.g.user_emmet_settings = {
-				javascriptreact = { extends = "jsx" },
-				typescriptreact = { extends = "jsx" },
-			}
-		end,
-	},
+	
 
-	-- NEW: Better text objects
 	{
 		"echasnovski/mini.ai",
 		event = "VeryLazy",
@@ -582,7 +450,6 @@ return {
 		end,
 	},
 
-	-- NEW: Flash (better f/t/search motions)
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -621,16 +488,12 @@ return {
 
 	{ "nvim-lua/plenary.nvim" },
 
-	-- Distraction-free mode
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
-		keys = {
-			{ "<leader>z", "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
-		},
+		keys = { { "<leader>z", "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" } },
 	},
 
-	-- Markdown live preview
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -641,64 +504,58 @@ return {
 		ft = { "markdown" },
 	},
 
-	-- Harpoon
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-	{
-			"<leader>ha",
-			function()
-				require("harpoon"):list():add()
-			end,
-			desc = "Harpoon file",
-		},
-		{
-			"<leader>H",
-			function()
-				require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-			end,
-			desc = "Harpoon menu",
-		},
-		{
-			"<leader>h1",
-			function()
-				require("harpoon"):list():select(1)
-			end,
-			desc = "Harpoon file 1",
-		},
-		{
-			"<leader>h2",
-			function()
-				require("harpoon"):list():select(2)
-			end,
-			desc = "Harpoon file 2",
-		},
-		{
-			"<leader>h3",
-			function()
-				require("harpoon"):list():select(3)
-			end,
-			desc = "Harpoon file 3",
-		},
-		{
-			"<leader>h4",
-			function()
-				require("harpoon"):list():select(4)
-			end,
-			desc = "Harpoon file 4",
-		},
+			{
+				"<leader>ha",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "Harpoon file",
+			},
+			{
+				"<leader>H",
+				function()
+					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+				end,
+				desc = "Harpoon menu",
+			},
+			{
+				"<leader>h1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "Harpoon file 1",
+			},
+			{
+				"<leader>h2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "Harpoon file 2",
+			},
+			{
+				"<leader>h3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon file 3",
+			},
+			{
+				"<leader>h4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "Harpoon file 4",
+			},
 		},
 	},
 
-	-- Session management (config in lua/config/auto-session.lua)
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-	},
+	{ "rmagatti/auto-session", lazy = false },
 
-	-- Diagnostics
 	{
 		"folke/trouble.nvim",
 		cmd = { "Trouble", "TroubleToggle" },
@@ -708,7 +565,6 @@ return {
 		},
 	},
 
-	-- Buffer management
 	{
 		"echasnovski/mini.bufremove",
 		event = "VeryLazy",
@@ -717,7 +573,6 @@ return {
 		end,
 	},
 
-	-- Modern icon provider (replaces nvim-web-devicons with better fallbacks)
 	{
 		"echasnovski/mini.nvim",
 		version = false,
@@ -728,15 +583,8 @@ return {
 		end,
 	},
 
-	-- NEW: Better quickfix
-	{
-		"kevinhwang91/nvim-bqf",
-		ft = "qf",
-	},
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 
-
-
-	-- Interactive scrollbar (clickable, draggable)
 	{
 		"dstein64/nvim-scrollview",
 		lazy = false,
@@ -749,10 +597,9 @@ return {
 		end,
 	},
 
-	-- Smooth scrolling (mouse + keyboard)
 	{
 		"folke/snacks.nvim",
-		priority = 1000,
+		priority = 900, -- alpha owns 1000; snacks doesn't need to race it
 		lazy = false,
 		opts = {
 			bigfile = { enabled = true },
@@ -761,5 +608,16 @@ return {
 		},
 	},
 
-
+	{
+		dir = "/home/ox/LuaPluginFun/taskflow.nvim",
+		name = "taskflow.nvim",
+		config = function()
+			require("taskflow").setup()
+		end,
+		keys = {
+			{ "<leader>tw", "<cmd>Taskflow<cr>", desc = "Toggle Taskflow" },
+			{ "<leader>ta", "<cmd>TaskflowAdd<cr>", desc = "Taskflow Add" },
+			{ "<leader>ts", "<cmd>TaskflowSearch<cr>", desc = "Taskflow Search" },
+		},
+	},
 }

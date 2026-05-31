@@ -562,14 +562,21 @@ wk.add({
 	{ "<leader>fr", ":Telescope lsp_references<CR>", desc = "LSP references (Telescope)", mode = "n" },
 	{ "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Fuzzy find in buffer", mode = "n" },
 	{ "<leader>fo", ":Telescope oldfiles<CR>", desc = "Recent files", mode = "n" },
+	{ "<leader>fw", ":Telescope grep_string<CR>", desc = "Find word under cursor (project)", mode = "n" },
 	{ "<leader>fp", ":Telescope project<CR>", desc = "Switch project", mode = "n" },
 	{ "gf", ":Telescope git_files<CR>", desc = "Git files", mode = "n" },
 	{ "<leader>g", group = "Git" },
 	{ "<leader>gs", ":Git<CR>", desc = "Git status (Fugitive)", mode = "n" },
-	{ "<leader>gg", "<cmd>Neogit<CR>", desc = "Git panel (Neogit)", mode = "n" },
-	{ "<leader>gc", ":Neogit commit<CR>", desc = "Git commit (Neogit)", mode = "n" },
-	{ "<leader>gp", ":Neogit push<CR>", desc = "Git push (Neogit)", mode = "n" },
-	{ "<leader>gl", ":Neogit pull<CR>", desc = "Git pull (Neogit)", mode = "n" },
+	{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit", mode = "n" },
+	{
+		"<leader>gc",
+		function()
+			vim.fn.system({ "git", "add", "-A" })
+			vim.cmd("LazyGit")
+		end,
+		desc = "Stage all + LazyGit (press c to commit)",
+		mode = "n",
+	},
 	{ "<leader>gb", ":Telescope git_branches<CR>", desc = "Switch branches", mode = "n" },
 	{ "<leader>gd", ":Gitsigns diffthis HEAD<CR>", desc = "Show diff for current file (vs HEAD)", mode = "n" },
 	{
@@ -665,11 +672,6 @@ wk.add({
 		desc = "Run current file in split",
 		mode = "n",
 	},
-	{ "<leader>a", group = "AI" },
-	{ "<leader>ac", ":CopilotChat<CR>", desc = "Copilot Chat", mode = "n" },
-	{ "<leader>ae", ":CopilotChatExplain<CR>", desc = "Explain code", mode = { "n", "v" } },
-	{ "<leader>at", ":CopilotChatTests<CR>", desc = "Generate tests", mode = { "n", "v" } },
-	{ "<leader>af", ":CopilotChatFix<CR>", desc = "Fix diagnostics", mode = "n" },
 	{ "<leader>c", group = "Code" },
 	{
 		"<leader>cc",
@@ -830,12 +832,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{
 				"<leader>lf",
 				function()
-					vim.lsp.buf.format({
-						async = true,
-						filter = function(client)
-							return client.name ~= "copilot"
-						end,
-					})
+					vim.lsp.buf.format({ async = true })
 				end,
 				desc = "Format buffer",
 				noremap = true,
@@ -891,6 +888,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					})
 				end,
 				desc = "Fix all",
+				noremap = true,
+				silent = true,
+			},
+			{
+				"<leader>ls",
+				vim.lsp.buf.signature_help,
+				desc = "Signature help",
+				noremap = true,
+				silent = true,
+			},
+			{
+				"<leader>lR",
+				function()
+					for _, client in ipairs(vim.lsp.get_clients()) do
+						client:stop()
+					end
+					vim.defer_fn(function()
+						vim.cmd("edit")
+					end, 500)
+				end,
+				desc = "Restart LSP",
 				noremap = true,
 				silent = true,
 			},

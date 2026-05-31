@@ -7,7 +7,7 @@ Press `<space>hh` to learn how to use Neovim or any plugin, and `<space>hk` to s
 ## Plugins
 
 **Completion & LSP**
-blink.cmp, LuaSnip, Mason, tailwind-tools.nvim, inc-rename.nvim
+blink.cmp, LuaSnip, Mason, emmet-vim, tailwind-tools.nvim, inc-rename.nvim
 
 **Treesitter**
 nvim-treesitter + textobjects, autotag, context
@@ -17,9 +17,6 @@ Neogit, vim-fugitive, gitsigns.nvim, diffview.nvim
 
 **Navigation & UI**
 which-key.nvim, neo-tree.nvim, telescope.nvim, bufferline.nvim, lualine.nvim, alpha-nvim, aerial.nvim, harpoon
-
-**AI**
-copilot.lua, CopilotChat.nvim
 
 **Debugging**
 nvim-dap, nvim-dap-ui, nvim-dap-go

@@ -85,9 +85,9 @@ require("telescope").setup({
 		end,
 
 		border = true,
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		prompt_prefix = "🔍 ",
-		selection_caret = "➤ ",
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		prompt_prefix = " > ",
+		selection_caret = "· ",
 		preview = {
 			hide_on_startup = false,
 			treesitter = true,

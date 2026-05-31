@@ -66,33 +66,174 @@ end
 
 local themes = {
 	-- Gruvbox Material
-	{ name = "gruvbox-hard-dark", display = "Gruvbox Hard (Dark)", background = "dark", config = function() vim.g.gruvbox_material_background = "hard"; vim.cmd.colorscheme("gruvbox-material") end },
-	{ name = "gruvbox-medium-dark", display = "Gruvbox Medium (Dark)", background = "dark", config = function() vim.g.gruvbox_material_background = "medium"; vim.cmd.colorscheme("gruvbox-material") end },
-	{ name = "gruvbox-soft-dark", display = "Gruvbox Soft (Dark)", background = "dark", config = function() vim.g.gruvbox_material_background = "soft"; vim.cmd.colorscheme("gruvbox-material") end },
-	{ name = "gruvbox-hard-light", display = "Gruvbox Hard (Light)", background = "light", config = function() vim.g.gruvbox_material_background = "hard"; vim.cmd.colorscheme("gruvbox-material") end },
-	{ name = "gruvbox-medium-light", display = "Gruvbox Medium (Light)", background = "light", config = function() vim.g.gruvbox_material_background = "medium"; vim.cmd.colorscheme("gruvbox-material") end },
-	{ name = "gruvbox-soft-light", display = "Gruvbox Soft (Light)", background = "light", config = function() vim.g.gruvbox_material_background = "soft"; vim.cmd.colorscheme("gruvbox-material") end },
+	{
+		name = "gruvbox-hard-dark",
+		display = "Gruvbox Hard (Dark)",
+		background = "dark",
+		config = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "gruvbox-medium-dark",
+		display = "Gruvbox Medium (Dark)",
+		background = "dark",
+		config = function()
+			vim.g.gruvbox_material_background = "medium"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "gruvbox-soft-dark",
+		display = "Gruvbox Soft (Dark)",
+		background = "dark",
+		config = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "gruvbox-hard-light",
+		display = "Gruvbox Hard (Light)",
+		background = "light",
+		config = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "gruvbox-medium-light",
+		display = "Gruvbox Medium (Light)",
+		background = "light",
+		config = function()
+			vim.g.gruvbox_material_background = "medium"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+	{
+		name = "gruvbox-soft-light",
+		display = "Gruvbox Soft (Light)",
+		background = "light",
+		config = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 
 	-- Tokyo Night
-	{ name = "tokyonight-night", display = "Tokyo Night (Night)", background = "dark", config = function() vim.cmd.colorscheme("tokyonight-night") end },
-	{ name = "tokyonight-storm", display = "Tokyo Night (Storm)", background = "dark", config = function() vim.cmd.colorscheme("tokyonight-storm") end },
-	{ name = "tokyonight-moon", display = "Tokyo Night (Moon)", background = "dark", config = function() vim.cmd.colorscheme("tokyonight-moon") end },
-	{ name = "tokyonight-day", display = "Tokyo Night (Day)", background = "light", config = function() vim.cmd.colorscheme("tokyonight-day") end },
+	{
+		name = "tokyonight-night",
+		display = "Tokyo Night (Night)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("tokyonight-night")
+		end,
+	},
+	{
+		name = "tokyonight-storm",
+		display = "Tokyo Night (Storm)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("tokyonight-storm")
+		end,
+	},
+	{
+		name = "tokyonight-moon",
+		display = "Tokyo Night (Moon)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("tokyonight-moon")
+		end,
+	},
+	{
+		name = "tokyonight-day",
+		display = "Tokyo Night (Day)",
+		background = "light",
+		config = function()
+			vim.cmd.colorscheme("tokyonight-day")
+		end,
+	},
 
 	-- Catppuccin
-	{ name = "catppuccin-mocha", display = "Catppuccin (Mocha)", background = "dark", config = function() vim.cmd.colorscheme("catppuccin-mocha") end },
-	{ name = "catppuccin-macchiato", display = "Catppuccin (Macchiato)", background = "dark", config = function() vim.cmd.colorscheme("catppuccin-macchiato") end },
-	{ name = "catppuccin-frappe", display = "Catppuccin (Frappe)", background = "dark", config = function() vim.cmd.colorscheme("catppuccin-frappe") end },
-	{ name = "catppuccin-latte", display = "Catppuccin (Latte)", background = "light", config = function() vim.cmd.colorscheme("catppuccin-latte") end },
+	{
+		name = "catppuccin-mocha",
+		display = "Catppuccin (Mocha)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
+	{
+		name = "catppuccin-macchiato",
+		display = "Catppuccin (Macchiato)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("catppuccin-macchiato")
+		end,
+	},
+	{
+		name = "catppuccin-frappe",
+		display = "Catppuccin (Frappe)",
+		background = "dark",
+		config = function()
+			vim.cmd.colorscheme("catppuccin-frappe")
+		end,
+	},
+	{
+		name = "catppuccin-latte",
+		display = "Catppuccin (Latte)",
+		background = "light",
+		config = function()
+			vim.cmd.colorscheme("catppuccin-latte")
+		end,
+	},
 
 	-- NeoSolarized
-	{ name = "neosolarized", display = "NeoSolarized (Dark)", background = "dark", config = function() require("neosolarized").setup({ comment_italics = true, background_set = false }); vim.cmd.colorscheme("neosolarized") end },
-	{ name = "neosolarized-light", display = "NeoSolarized (Light)", background = "light", config = function() require("neosolarized").setup({ comment_italics = true, background_set = true }); vim.cmd.colorscheme("neosolarized") end },
+	{
+		name = "neosolarized",
+		display = "NeoSolarized (Dark)",
+		background = "dark",
+		config = function()
+			require("neosolarized").setup({ comment_italics = true, background_set = false })
+			vim.cmd.colorscheme("neosolarized")
+		end,
+	},
+	{
+		name = "neosolarized-light",
+		display = "NeoSolarized (Light)",
+		background = "light",
+		config = function()
+			require("neosolarized").setup({ comment_italics = true, background_set = true })
+			vim.cmd.colorscheme("neosolarized")
+		end,
+	},
 
 	-- GitHub
-	{ name = "github_light_default", display = "GitHub Light (Default)", background = "light", config = function() load_github_theme("github_light_default") end },
-	{ name = "github_dark_default", display = "GitHub Dark (Default)", background = "dark", config = function() load_github_theme("github_dark_default") end },
-	{ name = "github_dark_dimmed", display = "GitHub Dark (Dimmed)", background = "dark", config = function() load_github_theme("github_dark_dimmed") end },
+	{
+		name = "github_light_default",
+		display = "GitHub Light (Default)",
+		background = "light",
+		config = function()
+			load_github_theme("github_light_default")
+		end,
+	},
+	{
+		name = "github_dark_default",
+		display = "GitHub Dark (Default)",
+		background = "dark",
+		config = function()
+			load_github_theme("github_dark_default")
+		end,
+	},
+	{
+		name = "github_dark_dimmed",
+		display = "GitHub Dark (Dimmed)",
+		background = "dark",
+		config = function()
+			load_github_theme("github_dark_dimmed")
+		end,
+	},
 }
 
 local theme_map = {}
@@ -164,8 +305,12 @@ local function detect_system_bg(callback)
 			end
 			vim.system({ "gsettings", "get", "org.gnome.desktop.interface", "gtk-theme" }, { text = true }, function(r3)
 				local out3 = (r3.stdout or ""):lower()
-				if out3:match("dark") then return callback("dark") end
-				if out3:match("light") then return callback("light") end
+				if out3:match("dark") then
+					return callback("dark")
+				end
+				if out3:match("light") then
+					return callback("light")
+				end
 				callback(nil)
 			end)
 		end)
@@ -174,19 +319,33 @@ end
 
 local function resolve_lualine_theme()
 	local cs = vim.g.colors_name or ""
-	if cs:match("gruvbox") then return "gruvbox-material"
-	elseif cs:match("catppuccin") then return "catppuccin"
-	elseif cs:match("tokyonight") then return "tokyonight"
-	elseif cs:match("github") then return vim.g.colors_name or "auto"
-	elseif cs:match("neosolarized") then return "solarized"
-	else return "auto" end
+	if cs:match("gruvbox") then
+		return "gruvbox-material"
+	elseif cs:match("catppuccin") then
+		return "catppuccin"
+	elseif cs:match("tokyonight") then
+		return "tokyonight"
+	elseif cs:match("github") then
+		return vim.g.colors_name or "auto"
+	elseif cs:match("neosolarized") then
+		return "solarized"
+	else
+		return "auto"
+	end
 end
 
 local function update_lualine()
 	local ok, lualine = pcall(require, "lualine")
-	if not ok then return end
+	if not ok then
+		return
+	end
 	lualine.setup({
-		options = { theme = resolve_lualine_theme(), section_separators = { left = "", right = "" }, component_separators = { left = "", right = "" }, icons_enabled = true },
+		options = {
+			theme = resolve_lualine_theme(),
+			section_separators = { left = "", right = "" },
+			component_separators = { left = "", right = "" },
+			icons_enabled = true,
+		},
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
@@ -200,8 +359,11 @@ end
 
 local function sync_alacritty(bg, theme_name)
 	local config_path = vim.fn.expand("~/.config/alacritty/alacritty.toml")
-	if vim.fn.filereadable(config_path) ~= 1 then return end
-	local file_name = alacritty_theme_map[theme_name] or (bg == "dark" and "catppuccin_mocha.toml" or "catppuccin_latte.toml")
+	if vim.fn.filereadable(config_path) ~= 1 then
+		return
+	end
+	local file_name = alacritty_theme_map[theme_name]
+		or (bg == "dark" and "catppuccin_mocha.toml" or "catppuccin_latte.toml")
 	local theme_path = "~/.config/alacritty/themes/themes/" .. file_name
 	local lines = vim.fn.readfile(config_path)
 	local new_lines = {}
@@ -212,11 +374,13 @@ local function sync_alacritty(bg, theme_name)
 			in_general = true
 			table.insert(new_lines, line)
 		elseif in_general and line:match("^import%s*=") then
-			table.insert(new_lines, 'import = ["' .. theme_path .. '"]' )
+			table.insert(new_lines, 'import = ["' .. theme_path .. '"]')
 			replaced = true
 			in_general = false
 		else
-			if line:match("^%[") then in_general = false end
+			if line:match("^%[") then
+				in_general = false
+			end
 			table.insert(new_lines, line)
 		end
 	end
@@ -256,13 +420,19 @@ vim.api.nvim_create_autocmd("OptionSet", {
 	pattern = "background",
 	group = vim.api.nvim_create_augroup("ThemeLockBackground", { clear = true }),
 	callback = function()
-		if applying then return end
-		if not locked_bg then return end
+		if applying then
+			return
+		end
+		if not locked_bg then
+			return
+		end
 		local new_bg = vim.v.option_new
 		if new_bg ~= locked_bg then
 			applying = true
 			vim.o.background = locked_bg
-			if vim.g.colors_name then vim.cmd.colorscheme(vim.g.colors_name) end
+			if vim.g.colors_name then
+				vim.cmd.colorscheme(vim.g.colors_name)
+			end
 			applying = false
 		end
 	end,
@@ -282,16 +452,28 @@ end
 
 local function toggle_theme()
 	local current = read_pref()
-	if not current then apply_theme("catppuccin-mocha"); return end
+	if not current then
+		apply_theme("catppuccin-mocha")
+		return
+	end
 	local pair = theme_pairs[current]
-	if pair then apply_theme(pair); return end
+	if pair then
+		apply_theme(pair)
+		return
+	end
 	local theme = theme_map[current]
-	if not theme then apply_theme("catppuccin-mocha"); return end
+	if not theme then
+		apply_theme("catppuccin-mocha")
+		return
+	end
 	local base = current:gsub("%-dark$", ""):gsub("%-light$", "")
 	local target_bg = theme.background == "dark" and "light" or "dark"
 	local target = base .. "-" .. target_bg
-	if theme_map[target] then apply_theme(target)
-	else vim.notify("No " .. target_bg .. " variant for " .. base, vim.log.levels.INFO) end
+	if theme_map[target] then
+		apply_theme(target)
+	else
+		vim.notify("No " .. target_bg .. " variant for " .. base, vim.log.levels.INFO)
+	end
 end
 
 local function pick_theme()
@@ -304,47 +486,76 @@ local function pick_theme()
 
 	local function preview_selection()
 		local sel = action_state.get_selected_entry()
-		if not sel then return end
+		if not sel then
+			return
+		end
 		local t = theme_map[sel.value]
-		if not t then return end
+		if not t then
+			return
+		end
 		applying = true
 		vim.opt.background = t.background
-		if t.config then t.config() else vim.cmd.colorscheme(t.name) end
+		if t.config then
+			t.config()
+		else
+			vim.cmd.colorscheme(t.name)
+		end
 		applying = false
 	end
 
-	pickers.new({}, {
-		prompt_title = "Select Theme (Live Preview)",
-		finder = finders.new_table({
-			results = themes,
-			entry_maker = function(entry)
-				return { value = entry.name, display = entry.display or entry.name, ordinal = entry.display or entry.name }
+	pickers
+		.new({}, {
+			prompt_title = "Select Theme (Live Preview)",
+			finder = finders.new_table({
+				results = themes,
+				entry_maker = function(entry)
+					return {
+						value = entry.name,
+						display = entry.display or entry.name,
+						ordinal = entry.display or entry.name,
+					}
+				end,
+			}),
+			sorter = conf.generic_sorter({}),
+			attach_mappings = function(prompt_bufnr, map)
+				local function move_and_preview(dir_action)
+					return function()
+						dir_action(prompt_bufnr)
+						preview_selection()
+					end
+				end
+				vim.keymap.set(
+					"i",
+					"<Up>",
+					move_and_preview(actions.move_selection_previous),
+					{ buffer = prompt_bufnr }
+				)
+				vim.keymap.set("i", "<Down>", move_and_preview(actions.move_selection_next), { buffer = prompt_bufnr })
+				vim.keymap.set(
+					"i",
+					"<C-p>",
+					move_and_preview(actions.move_selection_previous),
+					{ buffer = prompt_bufnr }
+				)
+				vim.keymap.set("i", "<C-n>", move_and_preview(actions.move_selection_next), { buffer = prompt_bufnr })
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
+					local sel = action_state.get_selected_entry()
+					if sel then
+						apply_theme(sel.value)
+					end
+				end)
+				local function cancel()
+					actions.close(prompt_bufnr)
+					apply_theme(original)
+				end
+				vim.keymap.set("i", "<Esc>", cancel, { buffer = prompt_bufnr })
+				vim.keymap.set("i", "<C-c>", cancel, { buffer = prompt_bufnr })
+				vim.schedule(preview_selection)
+				return true
 			end,
-		}),
-		sorter = conf.generic_sorter({}),
-		attach_mappings = function(prompt_bufnr, map)
-			local function move_and_preview(dir_action)
-				return function() dir_action(prompt_bufnr); preview_selection() end
-			end
-			vim.keymap.set("i", "<Up>", move_and_preview(actions.move_selection_previous), { buffer = prompt_bufnr })
-			vim.keymap.set("i", "<Down>", move_and_preview(actions.move_selection_next), { buffer = prompt_bufnr })
-			vim.keymap.set("i", "<C-p>", move_and_preview(actions.move_selection_previous), { buffer = prompt_bufnr })
-			vim.keymap.set("i", "<C-n>", move_and_preview(actions.move_selection_next), { buffer = prompt_bufnr })
-			actions.select_default:replace(function()
-				actions.close(prompt_bufnr)
-				local sel = action_state.get_selected_entry()
-				if sel then apply_theme(sel.value) end
-			end)
-			local function cancel()
-				actions.close(prompt_bufnr)
-				apply_theme(original)
-			end
-			vim.keymap.set("i", "<Esc>", cancel, { buffer = prompt_bufnr })
-			vim.keymap.set("i", "<C-c>", cancel, { buffer = prompt_bufnr })
-			vim.schedule(preview_selection)
-			return true
-		end,
-	}):find()
+		})
+		:find()
 end
 
 local function toggle_alacritty()
@@ -359,24 +570,40 @@ local kde_file = vim.fn.expand("~/.config/kdeglobals")
 local last_mtime = vim.fn.getftime(kde_file)
 local kde_timer = vim.uv.new_timer()
 
-kde_timer:start(2000, 2000, vim.schedule_wrap(function()
-	local mtime = vim.fn.getftime(kde_file)
-	if mtime < 0 or mtime == last_mtime then return end
-	last_mtime = mtime
-	detect_system_bg(vim.schedule_wrap(function(sys_bg)
-		if not sys_bg then return end
-		local current = read_pref()
-		if not current then return end
-		local t = theme_map[current]
-		if not t or t.background == sys_bg then return end
-		local pair = theme_pairs[current]
-		if pair then apply_theme(pair) end
-	end))
-end))
+kde_timer:start(
+	2000,
+	2000,
+	vim.schedule_wrap(function()
+		local mtime = vim.fn.getftime(kde_file)
+		if mtime < 0 or mtime == last_mtime then
+			return
+		end
+		last_mtime = mtime
+		detect_system_bg(vim.schedule_wrap(function(sys_bg)
+			if not sys_bg then
+				return
+			end
+			local current = read_pref()
+			if not current then
+				return
+			end
+			local t = theme_map[current]
+			if not t or t.background == sys_bg then
+				return
+			end
+			local pair = theme_pairs[current]
+			if pair then
+				apply_theme(pair)
+			end
+		end))
+	end)
+)
 
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	group = vim.api.nvim_create_augroup("ThemeCleanup", { clear = true }),
-	callback = function() kde_timer:stop() end,
+	callback = function()
+		kde_timer:stop()
+	end,
 })
 
 load_theme()

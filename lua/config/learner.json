@@ -243,39 +243,39 @@
     {
       "tags": ["git", "stage", "commit", "push", "pull"],
       "title": "Git commit",
-      "desc": "`<leader>gg` opens Neogit. `S` stages all, `c` then `c` to commit. Write message, `:wq`.",
-      "keys": "<leader>gg → S → c → c → (write) → :wq",
+      "desc": "`<leader>gg` opens LazyGit. Stage files with `s`, commit with `c`, push with `P`, pull with `p`.",
+      "keys": "<leader>gg",
       "category": "Git",
       "mode": "normal"
     },
     {
-      "tags": ["git", "commit", "fast"],
-      "title": "Quick commit (stage all + commit)",
-      "desc": "`<leader>gc` opens commit popup. Toggle `-a` with `a` to stage all, then `c`.",
-      "keys": "<leader>gc → a (toggle -a) → c → (write) → :wq",
+      "tags": ["git", "commit", "lazygit"],
+      "title": "Git commit (LazyGit)",
+      "desc": "`<leader>gc` stages all changes then opens LazyGit. Everything staged, just press `c` to commit.",
+      "keys": "<leader>gc → c (commit)",
       "category": "Git",
       "mode": "normal"
     },
     {
       "tags": ["git", "push"],
       "title": "Git push",
-      "desc": "`<leader>gp` pushes commits. Or inside Neogit: press `P`.",
-      "keys": "<leader>gp  or  P (inside Neogit)",
+      "desc": "`<leader>gg` opens LazyGit. Press `P` to push.",
+      "keys": "<leader>gg → P (push)",
       "category": "Git",
       "mode": "normal"
     },
     {
       "tags": ["git", "pull"],
       "title": "Git pull",
-      "desc": "`<leader>gl` pulls from remote. Or inside Neogit: press `p`.",
-      "keys": "<leader>gl  or  p (inside Neogit)",
+      "desc": "`<leader>gg` opens LazyGit. Press `p` to pull.",
+      "keys": "<leader>gg → p (pull)",
       "category": "Git",
       "mode": "normal"
     },
     {
       "tags": ["git", "status", "diff"],
       "title": "Git status / diff",
-      "desc": "`<leader>gg` opens Neogit. Shows unstaged/staged changes. `<leader>gs` opens Fugitive status.",
+      "desc": "`<leader>gg` opens LazyGit. Shows unstaged/staged changes. `<leader>gs` opens Fugitive status.",
       "keys": "<leader>gg  or  <leader>gs",
       "category": "Git",
       "mode": "normal"
@@ -291,7 +291,7 @@
     {
       "tags": ["git", "revert", "undo", "commit"],
       "title": "Revert a commit",
-      "desc": "In Neogit: move cursor to the commit, press `v` to create a revert commit (safe).",
+      "desc": "In LazyGit: select a commit, press `v` to revert it (safe).",
       "keys": "<leader>gg → select commit → v",
       "category": "Git",
       "mode": "normal"
@@ -363,8 +363,16 @@
     {
       "tags": ["snippets", "completion", "blink"],
       "title": "Autocomplete / snippets",
-      "desc": "`<Tab>` accepts completion. `<C-j>/<C-k>` to navigate suggestions. Type and blink.cmp completes.",
-      "keys": "<Tab>  (accept)  |  <C-j>/<C-k>  (navigate)",
+      "desc": "`<Tab>/<S-Tab>` move through completion items or snippet jumps. `<CR>` confirms the selected item. `<C-j>/<C-k>` also navigate suggestions.",
+      "keys": "<CR>  (confirm)  |  <Tab>/<S-Tab>  (next/prev)  |  <C-j>/<C-k>  (navigate)",
+      "category": "Editing",
+      "mode": "insert"
+    },
+    {
+      "tags": ["emmet", "html", "tsx", "css", "web"],
+      "title": "Expand Emmet abbreviation",
+      "desc": "In HTML, TSX, or CSS files, type an Emmet abbreviation and press `<C-y>,` to expand it without taking over `<Tab>`.",
+      "keys": "<C-y>,",
       "category": "Editing",
       "mode": "insert"
     },
@@ -627,8 +635,8 @@
     {
       "tags": ["quickfix", "trouble", "list"],
       "title": "Toggle Trouble diagnostics list",
-      "desc": "`<leader>xx` toggles Trouble (all diagnostics). `<leader>xw` workspace diagnostics. `<leader>xd` document diagnostics.",
-      "keys": "<leader>xx  or  <leader>xw  or  <leader>xd",
+      "desc": "`<leader>xx` toggles workspace diagnostics. `<leader>xt` shows document diagnostics in Trouble. `<leader>xd` toggles inline virtual text.",
+      "keys": "<leader>xx  or  <leader>xt  or  <leader>xd",
       "category": "LSP",
       "mode": "normal"
     },
@@ -646,22 +654,6 @@
       "desc": "`<leader>lS` opens Telescope LSP workspace symbol picker to search across all files in the project.",
       "keys": "<leader>lS",
       "category": "LSP",
-      "mode": "normal"
-    },
-    {
-      "tags": ["copilot", "accept", "ai", "suggestion"],
-      "title": "Copilot: accept suggestion",
-      "desc": "`<A-Enter>` accepts the current Copilot suggestion. `<A-]>` cycles through alternatives. Copilot suggests as you type.",
-      "keys": "<A-Enter>  (accept)  |  <A-]>  (next)  |  <A-[>  (previous)",
-      "category": "AI",
-      "mode": "insert"
-    },
-    {
-      "tags": ["copilot", "chat", "explain", "ai"],
-      "title": "CopilotChat: explain code",
-      "desc": "`<leader>ae` opens CopilotChat to explain the selected code. `<leader>at` generates tests. `<leader>af` fixes diagnostics.",
-      "keys": "<leader>ae  (explain)  |  <leader>at  (tests)  |  <leader>af  (fix)",
-      "category": "AI",
       "mode": "normal"
     },
     {

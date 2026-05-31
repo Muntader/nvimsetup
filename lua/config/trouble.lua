@@ -75,3 +75,4 @@ vim.keymap.set("n", "gR", function()
 end, { desc = "Toggle Trouble (LSP References)" })
 
 -- For your specific request, you'll primarily use `<leader>xt`
+--

@@ -19,9 +19,9 @@ vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.timeoutlen = 500 -- Keymap timeout (ms)
 vim.opt.hidden = true -- Allow hidden buffers
 vim.opt.undofile = true -- Persistent undo
-vim.opt.swapfile = true -- Enable swap files
+vim.opt.swapfile = false -- Enable swap files
 vim.opt.backupdir = vim.fn.stdpath("data") .. "/backup//" -- Backup file directory
-vim.fn.mkdir(vim.fn.stdpath("data") .. "/swap", "p") -- Create swap directory
+
 vim.fn.mkdir(vim.fn.stdpath("data") .. "/undo", "p") -- Create undo directory
 vim.fn.mkdir(vim.fn.stdpath("data") .. "/backup", "p") -- Create backup directory
 vim.opt.scrolloff = 8 -- Keep 8 lines visible above/below cursor
@@ -31,9 +31,9 @@ vim.opt.smartcase = true -- Case-sensitive if uppercase used
 vim.opt.hlsearch = true -- Highlight search results
 vim.opt.incsearch = true -- Incremental search
 vim.opt.shortmess:append("A") -- Avoid swap file warnings
-vim.opt.updatetime = 1000 -- Update time (ms)
+vim.opt.updatetime = 250 -- Update time (ms)
 -- Auto-save on focus loss
-vim.api.nvim_create_autocmd({ "BufWritePost", "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "FocusLost" }, {
 	callback = function()
 		if vim.bo.modified and vim.bo.buftype == "" then
 			vim.cmd("silent! write")
@@ -85,15 +85,12 @@ require("lazy").setup("plugins")
 
 -- Load configurations
 require("mappings")
-require("diagnostics")
 require("config.theme")
 require("config.neo-tree")
 require("config.treesitter")
 require("config.lsp")
 require("config.blink")
 require("config.conform")
-require("config.gitsigns")
-require("config.fugitive")
 require("config.telescope")
 require("config.bufferline")
 require("config.lualine")
@@ -102,6 +99,7 @@ require("config.comment")
 require("config.autopairs")
 require("config.auto-session")
 require("config.trouble")
+require("config.ui-colors")
 
 -- Open tree+diagnostics when opening a file (alpha handles empty startup)
 vim.api.nvim_create_autocmd("VimEnter", {

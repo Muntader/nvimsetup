@@ -96,13 +96,14 @@
 | `K` | Hover documentation |
 | `<leader>lr` | Rename symbol |
 | `<leader>la` | Code action |
+| `<leader>ls` | Signature help |
 | `<leader>lf` | Format buffer |
 | `<leader>ld` | Show line diagnostics |
+| `<leader>lh` | Toggle inlay hints |
 | `<leader>cl` | Run code lens |
 | `[d` | Previous diagnostic |
 | `]d` | Next diagnostic |
-| `<leader>lR` | Refresh LSP for current buffer |
-| `<leader>lr` | Restart all LSP clients (stop + reload) |
+| `<leader>lR` | Restart all LSP clients (stop + reload) |
 
 ---
 
@@ -121,6 +122,7 @@
 | `<leader>xt` | Document diagnostics (Trouble) |
 | `<leader>xq` | Quickfix list (Trouble) |
 | `<leader>xl` | Location list (Trouble) |
+| `<leader>xd` | Toggle inline diagnostic virtual text |
 | `gR` | LSP references (Trouble) |
 
 ---
@@ -141,17 +143,6 @@
 | `<leader>gh` | Stage hunk |
 | `<leader>gu` | Unstage hunk |
 | `<leader>gm` | Git blame line |
-
----
-
-## AI / Copilot `<leader>a`
-
-| Shortcut | Action |
-|----------|--------|
-| `<leader>ac` | Open Copilot Chat |
-| `<leader>ae` | Explain selected code |
-| `<leader>at` | Generate tests for selected code |
-| `<leader>af` | Fix diagnostics with AI |
 
 ---
 
@@ -278,13 +269,19 @@
 |----------|--------|
 | `<C-Space>` | Trigger completion |
 | `<C-e>` | Close completion menu |
-| `<Tab>` / `<S-Tab>` | Navigate completion items / expand snippets |
+| `<Tab>` / `<S-Tab>` | Next/prev completion item or snippet jump |
+| `<C-j>` / `<C-k>` | Next/prev completion item |
 | `<C-b>` / `<C-f>` | Scroll documentation |
 | `<CR>` | Confirm selected completion (or newline if none selected) |
-| `<M-/>` | Confirm with auto-select first |
-| `<M-Enter>` | Accept Copilot suggestion |
-| `<M-]>` / `<M-[>` | Next/prev Copilot suggestion |
-| `<C-e>` | Dismiss Copilot suggestion |
+
+---
+
+## Web / Emmet
+
+| Shortcut | Action |
+|----------|--------|
+| `<C-y>,` | Expand Emmet abbreviation in HTML/TSX/CSS |
+| Type `<div` then `>` | Autoclose/rename tags via Treesitter autotag |
 
 ---
 
